@@ -3,57 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Maps Location Share</title>
+    <title>Location Sharing Tool</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #f4f4f9;
+            background-color: #ffe4e1; /* Light pink background */
         }
         .container {
-            text-align: center;
-            max-width: 400px;
-            width: 100%;
-            padding: 20px;
-            background: white;
+            display: grid;
+            width: auto;
+            min-width: none;
+            margin: 0 auto; /* Center the container */
+            /* background: #050405; */
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
+            border: 2px solid #ffb6c1; /* Light pink border */
         }
         input {
-            width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: 1px solid #ccc;
+            border: 1px solid #ff69b4; /* Hot pink border */
             border-radius: 4px;
+            background-color: #ffe4e1; /* Light pink background */
         }
         button {
+            margin: 0 auto;
+            width: 50%;
             padding: 10px 20px;
-            background-color: #007BFF;
+            background-color: #ff1493; /* Deep pink button */
             color: white;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #c71585; /* Medium violet red on hover */
         }
         .result {
             margin-top: 20px;
             word-wrap: break-word;
+            color: #8b0000; /* Dark red text */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Share Google Maps Location</h1>
+        <h1 style="text-align: center;">Locatfadsion Sharing Tool</h1>
         <input type="text" id="shortUrl" placeholder="Enter shortened Google Maps URL">
-        <button onclick="generateShareableLink()">Share</button>
+        <button onclick="generateShareableLink()">Fetch Location</button>
         <div class="result" id="result"></div>
     </div>
     <script src="script.js"></script>

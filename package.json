@@ -2,13 +2,18 @@
   "name": "googlemaplocationshare",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
+  "main": "api/expand-url.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "vercel dev",
-    "serve": "npx http-server ."
+    "serve": "npx http-server .",
+    "dev": "nodemon --watch . --ext html,js,json --exec \"vercel dev\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  },
+  "type": "module"
 }
