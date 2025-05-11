@@ -1,4 +1,4 @@
-async function generateShareableLink() {
+window.generateShareableLink = async function generateShareableLink() {
     const input = document.getElementById('shortUrl').value.trim();
     const resultBox = document.getElementById('result');
 
@@ -34,3 +34,16 @@ async function generateShareableLink() {
         resultBox.innerHTML = `❌ ${err.message}`;
     }
 }
+
+document.getElementById('clearInput').addEventListener('click', function() {
+    document.getElementById('shortUrl').value = '';
+});
+
+document.getElementById('pasteButton').addEventListener('click', async function() {
+    try {
+        const text = await navigator.clipboard.readText();
+        document.getElementById('shortUrl').value = text;
+    } catch (err) {
+        alert('Failed to paste from clipboard: ' + err.message);
+    }
+});

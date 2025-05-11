@@ -13,7 +13,7 @@ export default async function handler(req, res) {
 
   const encoded = encodeURIComponent(plusCode);
   const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encoded}&key=${apiKey}`;
-
+  console.log('came into api', url);
   try {
     const response = await fetch(url);
     const data = await response.json();
@@ -24,11 +24,12 @@ export default async function handler(req, res) {
       !data.results[0].geometry ||
       !data.results[0].geometry.location
     ) {
-      return res.status(404).json({ error: 'Could not find location' });
+      return res.status(400).json({ error: 'Invalid plus code or address' });
     }
 
     const { lat, lng } = data.results[0].geometry.location;
     const geoHref = `geo:${lat},${lng}?q=${lat},${lng}`;
+  console.log('came into geoHref', JSON.stringify(data.results, null, 2));
 
     return res.status(200).json({ lat, lng, href: geoHref });
   } catch (err) {

@@ -14,33 +14,46 @@
             justify-content: center;
             height: 100vh;
             background-color: #ffe4e1; /* Light pink background */
+            padding: 0 10px;
         }
         .container {
             display: grid;
-            width: auto;
-            min-width: none;
-            margin: 0 auto; /* Center the container */
-            /* background: #050405; */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            max-width: 500px;
+            width: 100%;
+            padding: 10px;
+            background: #fff0f5; /* Lavender blush background */
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
+            border-radius: 12px; /* Softer corners */
             border: 2px solid #ffb6c1; /* Light pink border */
+            box-sizing: border-box;
+        }
+        h2 {
+            text-align: center;
+            color: #ff1493; /* Deep pink header color */
+            font-size: 1.8rem;
+            margin-bottom: 20px;
         }
         input {
             padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ff69b4; /* Hot pink border */
+            padding-right: 60px;
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #ff69b4;
             border-radius: 4px;
-            background-color: #ffe4e1; /* Light pink background */
+            height: 50px;
+            background-color: #ffe4e1;
+            font-size: 14px;
         }
         button {
-            margin: 0 auto;
-            width: 50%;
-            padding: 10px 20px;
+            margin: 16px auto 0;
+            width: 60%;
+            padding: 12px 20px;
             background-color: #ff1493; /* Deep pink button */
             color: white;
             border: none;
-            border-radius: 4px;
+            border-radius: 6px; /* Softer button corners */
             cursor: pointer;
+            font-size: 0.8rem;
         }
         button:hover {
             background-color: #c71585; /* Medium violet red on hover */
@@ -49,16 +62,43 @@
             margin-top: 20px;
             word-wrap: break-word;
             color: #8b0000; /* Dark red text */
+            font-size: 1rem;
+        }
+        #clearInput {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 28px;
+            color: #ff69b4;
+        }
+        #pasteButton {
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 22px;
+            color: #ff69b4;
+        }
+        .inputContainer {
+            position: relative;
+            margin: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1 style="text-align: center;">Locatfadsion Sharing Tool</h1>
-        <input type="text" id="shortUrl" placeholder="Enter shortened Google Maps URL">
-        <button onclick="generateShareableLink()">Fetch Location</button>
+        <h2 style="text-align: center;">Location Sharing Tool</h2>
+        <div class="inputContainer">
+            <input type="text" id="shortUrl" placeholder="Enter Plus Code from G-Map">
+            <span id="clearInput">&times;</span>
+            <span id="pasteButton">📋</span>
+        </div>
+        <button onclick="generateShareableLink()">OPEN OLA / UBER</button>
         <div class="result" id="result"></div>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="/src/script.js"></script>
 </body>
 </html>
